@@ -61,6 +61,7 @@ Example firewall response:
 Logged entry in user_packets.txt:
 
 src_ip: 192.168.1.10, dest_ip: 10.0.0.1, src_port: 4000, dest_port: 22, protocol: TCP, status: blocked, reason: Destination Port prohibited
+'''
 ## What I Learned 🧠
 
 How to build a Flask API for real-time packet processing
