@@ -49,7 +49,7 @@ User packets are logged in user_packets.txt.
 
 --------------------######## FUTURE IMPROVEMENTS 🚀 ########------------------------------------
 
-Deploy on AWS EC2
+Deploy on AWS EC2 or AWS Lambda
 
 Add subnet rules & rate limiting
 
