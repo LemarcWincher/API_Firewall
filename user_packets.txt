@@ -1,0 +1,8 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Mar/2026 18:18:34] "POST /firewallcheck HTTP/1.1" 200 -
+127.0.0.1 - - [05/Mar/2026 18:18:34] "POST /firewallcheck HTTP/1.1" 200 -
+127.0.0.1 - - [05/Mar/2026 18:18:34] "POST /firewallcheck HTTP/1.1" 200 -
+{"src_ip": "192.168.1.1", "dest_ip": "10.0.0.1", "src_port": 4000, "dest_port": 22, "protocol": "TCP", "user_packet": true, "status": "blocked", "reason": "Destination Port is prohibited"}
+127.0.0.1 - - [05/Mar/2026 18:19:19] "POST /firewallcheck HTTP/1.1" 200 -
