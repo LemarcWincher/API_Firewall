@@ -1,98 +1,65 @@
-# Lemarc’s API Firewall 🛡️
+API FIREWALL PROJECT 🛡️🛡️
+Author: Lemarc Wincher
+Date: March 5th, 2026
+Language: Python
+Tech: Flask API, Requests, Networking (5-Tuple Packets)
 
-A Python-based command-line project that simulates a simple firewall API. Built to practice Flask, networking, and packet filtering while logging user traffic.
+--------------------######## OVERVIEW ########----------------------------------------------
 
----
+Python-based API firewall that filters network packets using Flask.
+Packets follow the 5-tuple: src_ip, dest_ip, src_port, dest_port, protocol.
+User packets get logged to user_packets.txt for auditing.
 
-## What It Does
+--------------------######## FEATURES ########----------------------------------------------
 
-- Runs a **Flask API** to receive network packets (5-tuple: `src_ip`, `dest_ip`, `src_port`, `dest_port`, `protocol`)  
-- Filters traffic using simple rules:  
-  - Blocks certain **source IPs**  
-  - Blocks **restricted destination ports**  
-  - Allows only **TCP packets**  
-- Logs all **user-submitted packets** to `user_packets.txt` with decision and reason  
-- Supports **predefined test packets** and **interactive user packets**  
-- Includes a **master script** to run tests and user packets sequentially  
+Flask API firewall
 
----
+Blocks traffic by IP, port, or protocol
 
-## Firewall Rule Table ⚡
+Logs user-submitted packets
 
-| Rule # | Condition                | Action  | Reason                       |
-|--------|--------------------------|--------|------------------------------|
-| 1      | src_ip in blocked_ips     | Block  | Source IP blocked            |
-| 2      | protocol != TCP           | Block  | Only TCP allowed             |
-| 3      | dest_port == 22           | Block  | Destination Port prohibited  |
-| 4      | Anything else             | Allow  | N/A                          |
+Modular scripts: test_packets.py, user_packet.py, master_script.py, master_launcher.py
 
----
+--------------------######## FIREWALL RULES ########----------------------------------------
 
-## Technologies Used 🖥️
+Rule # | Condition | Action | Reason
 
-- **Python 3**  
-- **Flask** for the API server  
-- **Requests** for sending test/user packets  
-- Built-in modules: `logging`, `json`, `subprocess`, `sys`  
+1 | src_ip in blocked_ips | Block | Source IP blocked
+2 | protocol != TCP | Block | Only TCP allowed
+3 | dest_port == 22 | Block | Port prohibited
+4 | Anything else | Allow | N/A
 
----
+--------------------######## RUNNING ########-----------------------------------------------
 
-## Example Usage ⚡
+Start firewall:
 
-Start the firewall:  
-```bash
 python firewall.py
-Send test packets:
 
-python test_packets.py
+Send packets:
 
-Send your own packets:
+python test_packets.py # predefined
+python user_packet.py # enter your own
 
-python user_packet.py
+Optional: run master script:
 
-Optional: run all scripts automatically:
+python master_script.py # runs the firewall script, then the test_packet and user_packet scripts subsequently
 
-python master_script.py
+User packets are logged in user_packets.txt.
 
-Example firewall response:
+--------------------######## FUTURE IMPROVEMENTS ########------------------------------------
 
-{"status": "blocked", "reason": "Source IP is blocked"}
+Deploy on AWS EC2
 
-Logged entry in user_packets.txt:
+Add subnet rules & rate limiting
 
-src_ip: 192.168.1.10, dest_ip: 10.0.0.1, src_port: 4000, dest_port: 22, protocol: TCP, status: blocked, reason: Destination Port prohibited```
-## What I Learned 🧠
-
-How to build a Flask API for real-time packet processing
-
-How to log network activity safely
-
-How to design modular scripts for test and user interaction
-
-How to handle errors and input validation
-
-Basics of network security rules and firewall logic
-
-## Future Improvements 🚀
-
-Deploy on AWS EC2 with secure rules
-
-Add subnet/CIDR blocking
-
-Implement rate limiting
-
-JSON-formatted logging and monitoring dashboard
+JSON logging & monitoring dashboard
 
 API authentication
 
-## About Me
+--------------------######## ABOUT ########--------------------------------------------------
 
-I’m Lemarc Wincher, a CIS junior at Texas State University (McCoy College of Business).
-I build small tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
+Self-taught Python (going on 5 months) & 2nd cybersecurity project. Shows firewall logic, packet filtering, logging, and hands-on API use.
 
-📫 Contact:
-
+LinkedIn: https://www.linkedin.com/in/lemarc-wincher/
 Email: lemwincher@gmail.com
-
-LinkedIn: linkedin.com/in/lemarc-wincher
 
