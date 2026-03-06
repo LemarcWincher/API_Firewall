@@ -1,61 +1,98 @@
-API FIREWALL PROJECT
-Author: Lemarc Wincher
-Date: March 5th, 2026
-Language: Python
-Tech: Flask API, Requests, Networking (5-Tuple Packets)
+Lemarc’s API Firewall 🛡️
 
---------------------######## OVERVIEW ########----------------------------------------------
+A Python-based command-line project that simulates a simple firewall API. Built to practice Flask, networking, and packet filtering while logging user traffic.
 
-Python-based API firewall that filters network packets using Flask.
-Packets follow the 5-tuple: src_ip, dest_ip, src_port, dest_port, protocol.
-User packets get logged to user_packets.txt for auditing.
+What It Does
 
---------------------######## FEATURES ########----------------------------------------------
+Runs a Flask API to receive network packets (5-tuple: src_ip, dest_ip, src_port, dest_port, protocol)
 
-Flask API firewall
+Filters traffic using simple rules:
 
-Blocks traffic by IP, port, or protocol
+Blocks certain source IPs
 
-Logs user-submitted packets
+Blocks restricted destination ports
 
-Modular scripts: test_packets.py, user_packet.py, master_script.py, master_launcher.py
+Allows only TCP packets
 
---------------------######## FIREWALL RULES ########----------------------------------------
+Logs all user-submitted packets to user_packets.txt with decision and reason
 
-Rule # | Condition | Action | Reason
+Supports predefined test packets and interactive user packets
 
-1 | src_ip in blocked_ips | Block | Source IP blocked
-2 | protocol != TCP | Block | Only TCP allowed
-3 | dest_port == 22 | Block | Port prohibited
-4 | Anything else | Allow | N/A
+Includes a master script to run tests and user packets sequentially
 
---------------------######## RUNNING ########-----------------------------------------------
+Firewall Rule Table ⚡
+Rule #	Condition	Action	Reason
+1	src_ip in blocked_ips	Block	Source IP blocked
+2	protocol != TCP	Block	Only TCP allowed
+3	dest_port == 22	Block	Destination Port prohibited
+4	Anything else	Allow	N/A
+Technologies Used 🖥️
 
-Start firewall:
+Python 3
+
+Flask for the API server
+
+Requests for sending test/user packets
+
+Built-in modules: logging, json, subprocess, sys
+
+Example Usage ⚡
+
+Start the firewall:
 
 python firewall.py
 
-Send packets:
+Send test packets:
 
-python test_packets.py # predefined
-python user_packet.py # enter your own
+python test_packets.py
 
-Optional: run master script:
+Send your own packets:
 
-python master_script.py # runs the firewall script, then the test_packet and user_packet scripts subsequently
+python user_packet.py
 
-User packets are logged in user_packets.txt.
+Optional: run all scripts automatically:
 
---------------------######## FUTURE IMPROVEMENTS ########------------------------------------
+python master_script.py
 
-Deploy on AWS EC2
+Example firewall response:
 
-Add subnet rules & rate limiting
+{"status": "blocked", "reason": "Source IP is blocked"}
 
-JSON logging & monitoring dashboard
+Logged entry in user_packets.txt:
+
+src_ip: 192.168.1.10, dest_ip: 10.0.0.1, src_port: 4000, dest_port: 22, protocol: TCP, status: blocked, reason: Destination Port prohibited
+What I Learned 🧠
+
+How to build a Flask API for real-time packet processing
+
+How to log network activity safely
+
+How to design modular scripts for test and user interaction
+
+How to handle errors and input validation
+
+Basics of network security rules and firewall logic
+
+Future Improvements 🚀
+
+Deploy on AWS EC2 with secure rules
+
+Add subnet/CIDR blocking
+
+Implement rate limiting
+
+JSON-formatted logging and monitoring dashboard
 
 API authentication
 
---------------------######## ABOUT ########--------------------------------------------------
+About Me
 
-Self-taught Python & cybersecurity project. Shows firewall logic, packet filtering, logging, and hands-on API use.
+I’m Lemarc Wincher, a CIS junior at Texas State University (McCoy College of Business). I build small tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
+
+📫 Contact:
+
+Email: lemwincher@gmail.com
+
+LinkedIn: linkedin.com/in/lemarc-wincher
+
+"Every packet counts — knowing why it’s allowed or blocked is key to learning security."
