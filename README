@@ -1,47 +1,47 @@
-Lemarc’s API Firewall 🛡️
+# Lemarc’s API Firewall 🛡️
 
 A Python-based command-line project that simulates a simple firewall API. Built to practice Flask, networking, and packet filtering while logging user traffic.
 
-What It Does
+---
 
-Runs a Flask API to receive network packets (5-tuple: src_ip, dest_ip, src_port, dest_port, protocol)
+## What It Does
 
-Filters traffic using simple rules:
+- Runs a **Flask API** to receive network packets (5-tuple: `src_ip`, `dest_ip`, `src_port`, `dest_port`, `protocol`)  
+- Filters traffic using simple rules:  
+  - Blocks certain **source IPs**  
+  - Blocks **restricted destination ports**  
+  - Allows only **TCP packets**  
+- Logs all **user-submitted packets** to `user_packets.txt` with decision and reason  
+- Supports **predefined test packets** and **interactive user packets**  
+- Includes a **master script** to run tests and user packets sequentially  
 
-Blocks certain source IPs
+---
 
-Blocks restricted destination ports
+## Firewall Rule Table ⚡
 
-Allows only TCP packets
+| Rule # | Condition                | Action  | Reason                       |
+|--------|--------------------------|--------|------------------------------|
+| 1      | src_ip in blocked_ips     | Block  | Source IP blocked            |
+| 2      | protocol != TCP           | Block  | Only TCP allowed             |
+| 3      | dest_port == 22           | Block  | Destination Port prohibited  |
+| 4      | Anything else             | Allow  | N/A                          |
 
-Logs all user-submitted packets to user_packets.txt with decision and reason
+---
 
-Supports predefined test packets and interactive user packets
+## Technologies Used 🖥️
 
-Includes a master script to run tests and user packets sequentially
+- **Python 3**  
+- **Flask** for the API server  
+- **Requests** for sending test/user packets  
+- Built-in modules: `logging`, `json`, `subprocess`, `sys`  
 
-Firewall Rule Table ⚡
-Rule #	Condition	Action	Reason
-1	src_ip in blocked_ips	Block	Source IP blocked
-2	protocol != TCP	Block	Only TCP allowed
-3	dest_port == 22	Block	Destination Port prohibited
-4	Anything else	Allow	N/A
-Technologies Used 🖥️
+---
 
-Python 3
+## Example Usage ⚡
 
-Flask for the API server
-
-Requests for sending test/user packets
-
-Built-in modules: logging, json, subprocess, sys
-
-Example Usage ⚡
-
-Start the firewall:
-
+Start the firewall:  
+```bash
 python firewall.py
-
 Send test packets:
 
 python test_packets.py
@@ -61,7 +61,7 @@ Example firewall response:
 Logged entry in user_packets.txt:
 
 src_ip: 192.168.1.10, dest_ip: 10.0.0.1, src_port: 4000, dest_port: 22, protocol: TCP, status: blocked, reason: Destination Port prohibited
-What I Learned 🧠
+## What I Learned 🧠
 
 How to build a Flask API for real-time packet processing
 
@@ -73,7 +73,7 @@ How to handle errors and input validation
 
 Basics of network security rules and firewall logic
 
-Future Improvements 🚀
+## Future Improvements 🚀
 
 Deploy on AWS EC2 with secure rules
 
@@ -85,9 +85,10 @@ JSON-formatted logging and monitoring dashboard
 
 API authentication
 
-About Me
+## About Me
 
-I’m Lemarc Wincher, a CIS junior at Texas State University (McCoy College of Business). I build small tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
+I’m Lemarc Wincher, a CIS junior at Texas State University (McCoy College of Business).
+I build small tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
 
 📫 Contact:
 
@@ -95,4 +96,3 @@ Email: lemwincher@gmail.com
 
 LinkedIn: linkedin.com/in/lemarc-wincher
 
-"Every packet counts — knowing why it’s allowed or blocked is key to learning security."
