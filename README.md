@@ -10,13 +10,13 @@ Tech: Flask API, Requests, Networking (5-Tuple Packets)
 
 Imports: flask, json, jsonify, request, logging, colorama, fore, init
 
-                         OVERVIEW 📝
+                                 OVERVIEW 📝
 
 Python-based API firewall that filters network packets using Flask.
 Packets follow the 5-tuple: src_ip, dest_ip, src_port, dest_port, protocol.
 User packets get logged to user_packets.txt for auditing.
 
-                        FEATURES 🔧 ########
+                                 FEATURES 🔧 
 
 Flask API firewall
 
@@ -26,7 +26,7 @@ Logs user-submitted packets
 
 Modular scripts: test_packets.py, user_packet.py, master_script.py, master_launcher.py
 
-                          FIREWALL RULES 👨‍💻
+                              FIREWALL RULES 👨‍💻
 
 Rule # | Condition | Action | Reason
 
@@ -52,7 +52,7 @@ python master_script.py # runs the firewall script, then the test_packet and use
 
 User packets are logged in user_packets.txt.
 
-                                  FUTURE IMPROVEMENTS 🚀
+                               FUTURE IMPROVEMENTS 🚀
 
 Deploy on AWS Lambda (already tested on AWS EC2)
 
@@ -62,7 +62,7 @@ JSON logging & monitoring dashboard
 
 API authentication
 
-                                        ABOUT 📫 
+                                    ABOUT 📫 
 
 I’m Lemarc Wincher, 22 years old, a CIS junior at Texas State University (McCoy College of Business).  
 I build tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
