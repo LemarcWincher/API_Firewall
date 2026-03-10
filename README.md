@@ -1,2 +1,71 @@
-# API_Firewall
-A Python Flask API that simulates a network firewall by filtering and logging packets, blocking certain IPs and ports, and enforcing TCP-only traffic.
+API FIREWALL PROJECT 🛡️⚡
+
+Author: Lemarc Wincher
+Date: March 9th, 2026
+Language: Python
+Tech: Flask API, Requests, Networking (5-Tuple Packets)
+Imports: flask, json, jsonify, request, logging, colorama, fore, init
+
+--------------------######## OVERVIEW 📝 ########----------------------------------------------
+
+Python-based API firewall that filters network packets using Flask.
+Packets follow the 5-tuple: src_ip, dest_ip, src_port, dest_port, protocol.
+User packets get logged to user_packets.txt for auditing.
+
+--------------------######## FEATURES 🔧 ########----------------------------------------------
+
+Flask API firewall
+
+Blocks traffic by IP, port, or protocol
+
+Logs user-submitted packets
+
+Modular scripts: test_packets.py, user_packet.py, master_script.py, master_launcher.py
+
+--------------------######## FIREWALL RULES 👨‍💻 ########----------------------------------------
+
+Rule # | Condition | Action | Reason
+
+1 | src_ip in blocked_ips | Block | Source IP blocked
+2 | protocol != TCP | Block | Only TCP allowed
+3 | dest_port == 22 | Block | Port prohibited
+4 | Anything else | Allow | N/A
+
+--------------------######## RUNNING 🔥 ########-----------------------------------------------
+
+Start firewall:
+
+python firewall.py
+
+Send packets:
+
+python test_packets.py # predefined
+python user_packet.py # enter your own
+
+Optional: run master script:
+
+python master_script.py # runs the firewall script, then the test_packet and user_packet scripts subsequently
+
+User packets are logged in user_packets.txt.
+
+--------------------######## FUTURE IMPROVEMENTS 🚀 ########------------------------------------
+
+Deploy on AWS EC2 or AWS Lambda
+
+Add subnet rules & rate limiting
+
+JSON logging & monitoring dashboard
+
+API authentication
+
+--------------------######## ABOUT 📫 ########--------------------------------------------------
+
+I’m Lemarc Wincher, 22 years old, a CIS junior at Texas State University (McCoy College of Business).  
+I build tools like this to strengthen my understanding of IT, cybersecurity, and automation fundamentals — one project at a time.
+
+This tool was built using self-taught Python (going on 5 months) and is currently my 2nd cybersecurity project. It shows firewall logic, packet filtering, logging, and hands-on API use.
+
+Contact:
+LinkedIn: https://www.linkedin.com/in/lemarc-wincher/
+Email: lemwincher@gmail.com
+
