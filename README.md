@@ -1,9 +1,13 @@
 API FIREWALL PROJECT 🛡️⚡
 
 Author: Lemarc Wincher
+
 Date: March 9th, 2026
+
 Language: Python
+
 Tech: Flask API, Requests, Networking (5-Tuple Packets)
+
 Imports: flask, json, jsonify, request, logging, colorama, fore, init
 
 --------------------######## OVERVIEW 📝 ########----------------------------------------------
